@@ -1,0 +1,110 @@
+/* ---- Page background (blurred) ---- */
+.category-page {
+  position: relative;
+  min-height: 100vh;
+}
+
+.category-page__bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.category-page__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* blur + slight zoom so edges don’t show */
+  filter: blur(12px) brightness(0.9);
+  transform: scale(1.06);
+}
+
+/* soft white veil so content stays readable on top of the photo */
+.category-page__scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* ---- Content container ---- */
+.category-page .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.category-page__title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+/* space under the search */
+.category-page__search {
+  margin: 0 0 14px;
+}
+
+/* ---- Grid of product cards (horizontal rows) ---- */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* ---- Card ---- */
+.cat-card {
+  display: block;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  box-shadow: 0 6px 22px -12px rgba(0,0,0,.25);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.cat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -14px rgba(0,0,0,.28);
+}
+
+/* same image size for all cards */
+.cat-card__thumb {
+  height: 180px;            /* <- fixed height keeps all equal */
+  background: #f3f4f6;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.cat-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* fills box, crops evenly */
+  display: block;
+}
+
+.cat-card__body {
+  padding: 12px 16px;
+}
+
+.cat-card__title {
+  font-weight: 700;
+}
+
+.cat-card__desc {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;    /* 2-line ellipsis */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cat-card__price {
+  margin-top: 8px;
+  font-weight: 700;
+}

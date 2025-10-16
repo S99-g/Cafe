@@ -1,0 +1,63 @@
+/* Background treatment */
+.users { position: relative; min-height: calc(100vh - 64px); }
+.users__bg { position: fixed; inset: 0; z-index: -2; }
+.users__bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(6px) saturate(0.9); transform: scale(1.04); }
+.users__shade { position: fixed; inset: 0; background: rgba(255,255,255,0.7); backdrop-filter: blur(2px); z-index: -1; }
+
+.users__body { max-width: 1100px; margin: 0 auto; padding: 24px 16px 40px; }
+.users__title { font-size: 28px; font-weight: 800; color: #2b2116; margin-bottom: 14px; }
+
+.users__alert { padding: 10px 12px; border-radius: 10px; border: 1px solid; margin-bottom: 12px; }
+.users__alert--error { background: #fee2e2; border-color: #fecaca; color: #7f1d1d; }
+.users__muted { color: #6b5c51; padding: 8px 0; }
+
+/* Table shell */
+.users__tablewrap {
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 14px 30px -20px rgba(0,0,0,.35);
+}
+
+.users__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+}
+
+.users__table thead th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(#faf7f3, #f3ede6);
+  color: #3b2b1a;
+  text-align: left;
+  font-weight: 700;
+  padding: 12px;
+  border-bottom: 1px solid #eee3d6;
+}
+
+.users__table tbody tr:hover { background: #fff9f2; }
+.users__table tbody td { padding: 12px; border-bottom: 1px solid #f3eee8; color: #2b2b2b; }
+.users__table tbody tr:last-child td { border-bottom: none; }
+
+.users__actions { width: 120px; text-align: right; }
+
+/* Buttons & badges */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 6px 10px; border-radius: 8px; border: 1px solid transparent;
+  font-weight: 700; font-size: 13px; cursor: pointer;
+}
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.btn--danger { background: #ef4444; color: #fff; border-color: #ef4444; }
+.btn--danger:hover:not(:disabled) { filter: brightness(0.95); }
+
+.badge {
+  display: inline-block; padding: 3px 8px; font-size: 12px; border-radius: 999px;
+  background: #eee; color: #222; border: 1px solid #e5e7eb;
+}
+.badge--user { background: #eef2ff; color: #1e3a8a; border-color: #c7d2fe; }
+.badge--admin { background: #fef9c3; color: #7c2d12; border-color: #fde68a; }
+.badge--superadmin { background: #dcfce7; color: #065f46; border-color: #bbf7d0; text-transform: capitalize; }

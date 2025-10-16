@@ -1,0 +1,76 @@
+/* src/pages/info.css */
+:root{
+  --cafe-bg: #f7f1e8;
+  --ink: #2b2b2b;
+  --foam: #F3E5CF;
+  --accent: #FBBF24;
+}
+
+.page {
+  position: relative;
+  min-height: calc(100vh - 64px);
+  color: var(--ink);
+  background: var(--cafe-bg);
+  overflow: hidden;
+}
+
+/* blurred background image */
+.page__bg {
+  position: absolute; inset: 0;
+  z-index: 0; overflow: hidden;
+  filter: blur(6px) saturate(115%);
+  transform: scale(1.03);
+}
+.page__bg img { width:100%; height:100%; object-fit: cover; opacity:.22; }
+
+.page__shade {
+  position: absolute; inset:0; z-index:1;
+  background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.8));
+}
+
+.page__body {
+  position: relative; z-index: 2;
+  max-width: 1100px; margin: 0 auto; padding: 28px 16px 40px;
+}
+
+.page__title {
+  font-size: clamp(28px, 2.6vw, 36px);
+  font-weight: 800;
+  letter-spacing: .2px;
+  margin: 4px 0 14px;
+}
+
+.page__lead { color: #6b5c51; max-width: 70ch; }
+
+.section { margin-top: 22px; }
+.section__title { font-weight: 800; font-size: 20px; margin-bottom: 10px; }
+
+.grid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 600px){ .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px){ .grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* cards */
+.card-lite{
+  background:#fff; border:1px solid rgba(0,0,0,.06);
+  border-radius:14px; padding:14px 16px; box-shadow:0 12px 26px -18px rgba(0,0,0,.25);
+}
+
+/* contact form */
+.form {
+  display:grid; gap:12px; max-width:560px;
+}
+.input, .textarea {
+  width:100%; padding:10px 12px; border-radius:10px;
+  border:1px solid #e8e2d7; background:#fff;
+}
+.textarea { min-height:120px; resize:vertical; }
+
+.btn-primary{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 14px; border-radius:10px; border:1px solid rgba(0,0,0,.06);
+  background: var(--accent); color:#1a1a1a; font-weight:800;
+}
+.badge{ display:inline-block; padding:4px 8px; background:#fff1cc; border-radius:8px; border:1px solid #ffe28a; font-weight:600; }
